@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { fetchPokemonList } from "../actions/pokemon";
 import { connect } from "react-redux";
 import { RootState } from "../types";
+import PokemonList from "../components/PokemonList";
 
 interface DispatchProps {
   fetchPokemonList: (limit: number, offset: number) => void;
@@ -18,10 +19,10 @@ const PokemonListContainer: React.FC<TotalProps> = ({
   pokemon,
 }) => {
   useEffect(() => {
-    fetchPokemonList(0, 20);
+    fetchPokemonList(20, 0);
   }, [fetchPokemonList]);
-  console.log(pokemon?.pokemonList);
-  return <p>P</p>;
+
+  return <PokemonList pokemonList={pokemon?.pokemonList} />;
 };
 
 const mapStateToProps = (state: RootState) => ({ pokemon: state.pokemon });
