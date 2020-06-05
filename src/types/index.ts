@@ -1,11 +1,18 @@
 export interface RootState {
   pokemon?: {
     pokemonList: PokemonListState;
+    pokemonObject: PokemonObjectState;
   };
 }
 
 export interface PokemonListState {
   pokemons: Pokemon[];
+  error: Error | null;
+  loading: boolean;
+}
+
+export interface PokemonObjectState {
+  pokemon: Pokemon | {};
   error: Error | null;
   loading: boolean;
 }

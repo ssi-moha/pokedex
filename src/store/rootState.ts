@@ -7,6 +7,11 @@ const rootState: RootState = {
       error: null,
       loading: false,
     },
+    pokemonObject: {
+      pokemon: {},
+      error: null,
+      loading: false,
+    },
   },
 };
 

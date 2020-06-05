@@ -2,11 +2,19 @@ import {
   POKEMON_LIST_REQUEST,
   POKEMON_LIST_SUCCESS,
   POKEMON_LIST_FAILURE,
+  POKEMON_OBJECT_REQUEST,
+  POKEMON_OBJECT_SUCCESS,
+  POKEMON_OBJECT_FAILURE,
 } from "../actions";
 
 const INITIAL_STATE = {
   pokemonList: {
     pokemons: [],
+    error: null,
+    loading: false,
+  },
+  pokemonObject: {
+    pokemon: {},
     error: null,
     loading: false,
   },
@@ -40,6 +48,33 @@ export default function (
         ...state,
         pokemonList: {
           pokemons: [],
+          error: action.payload,
+          loading: false,
+        },
+      };
+    case POKEMON_OBJECT_REQUEST:
+      return {
+        ...state,
+        pokemonObject: {
+          pokemon: { ...state.pokemonObject.pokemon },
+          error: null,
+          loading: true,
+        },
+      };
+    case POKEMON_OBJECT_SUCCESS:
+      return {
+        ...state,
+        pokemonObject: {
+          pokemon: { ...action.payload },
+          error: null,
+          loading: false,
+        },
+      };
+    case POKEMON_OBJECT_FAILURE:
+      return {
+        ...state,
+        pokemonObject: {
+          pokemon: null,
           error: action.payload,
           loading: false,
         },
