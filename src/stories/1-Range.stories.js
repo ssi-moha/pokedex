@@ -1,15 +1,14 @@
 import React from "react";
-import Range from "../components/Range";
+import { Range } from "../components/Range";
 
 export default {
   title: "Range",
-  component: Range,
 };
 
 export const Simple = () => (
  
     <div style={{ width: "300px" }}>
-      <Range />
+      <Range value={75} max={100} />
     </div>
 
 );

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Pokemon, PokemonObjectState } from "../../types";
+import { Pokemon } from "../../types";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -9,7 +9,6 @@ interface Props {
 
 const PokemonImg = styled.div`
   display: flex;
-  margin: auto;
   justify-content: center;
   height: 300px;
   width: 100%;
@@ -35,7 +34,9 @@ const TypesBlock = styled.div`
   }
 `;
 
-const PokemonCardBlock = styled.div`
+const PokemonCardBlock = styled(Link)`
+  color: unset;
+  text-decoration: unset;
   display: flex;
   position: relative;
   height: 500px;
@@ -60,37 +61,34 @@ const PokemonCardBlock = styled.div`
   }
 `;
 
-const MyLink = styled(Link)`
-  color: unset;
-
-  text-decoration: unset;
-`;
-
 const PokemonCard: React.FC<Props> = ({ pokemon }) => {
   return (
-    <PokemonCardBlock>
-      <MyLink to={`/pokemon/${pokemon.name}`}>
-        <div>
-          <p style={{ float: "left" }}>#{pokemon.id}</p>
-          <p style={{ float: "right" }}>{pokemon.name}</p>
-        </div>
-        <PokemonImg>
-          <img src={`/images/pokemons/${pokemon.id}.svg`} alt={pokemon.name} />
-        </PokemonImg>
+    <PokemonCardBlock to={`/pokemon/${pokemon.name}`}>
+      <div>
+        <p style={{ float: "left" }}>#{pokemon.id}</p>
+        <p
+          className="title"
+          style={{ float: "right", textTransform: "capitalize" }}
+        >
+          {pokemon.name}
+        </p>
+      </div>
+      <PokemonImg>
+        <img src={`/images/pokemons/${pokemon.id}.svg`} alt={pokemon.name} />
+      </PokemonImg>
 
-        <InformationsBlock>
-          <p>Height: {pokemon.height}</p>
-          <p>Weight: {pokemon.weight}</p>
-        </InformationsBlock>
-        <TypesBlock>
-          {pokemon.types.map((type) => (
-            <img
-              src={`/images/types/${type.type.name}.svg`}
-              alt={type.type.name}
-            />
-          ))}
-        </TypesBlock>
-      </MyLink>
+      <InformationsBlock>
+        <p>Height: {(pokemon.height * 0.1).toFixed(1)} m</p>
+        <p>Weight: {(pokemon.weight * 0.1).toFixed(1)} kg</p>
+      </InformationsBlock>
+      <TypesBlock>
+        {pokemon.types.map((type) => (
+          <img
+            src={`/images/types/${type.type.name}.svg`}
+            alt={type.type.name}
+          />
+        ))}
+      </TypesBlock>
     </PokemonCardBlock>
   );
 };

@@ -27,7 +27,8 @@ const PokemonListContainer: React.FC<TotalProps> = ({
   }
 
   useEffect(() => {
-    fetchPokemonList(21, offset);
+    fetchPokemonList(21, offset > 649 ? 649 : offset);
+    //handle last
   }, [fetchPokemonList, offset]);
 
   return <PokemonList pokemonList={pokemon?.pokemonList} />;

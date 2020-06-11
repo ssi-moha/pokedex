@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { RootState, Pokemon } from "../types";
 import { fetchPokemonObject } from "../actions/pokemon";
 import PokemonCard from "../components/PokemonCard";
-import Spinner from "../components/Spinner";
 import isEmpty from "../utils/isEmpty";
 
 interface DispatchProps {

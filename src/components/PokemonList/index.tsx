@@ -12,9 +12,9 @@ interface Props {
 const Container = styled.div`
   margin: 0 auto;
 
-  @media screen and (min-width: 1472px) {
-    max-width: 1344px;
-    width: 1344px;
+  @media screen and (min-width: 1088px) {
+    max-width: 960px;
+    width: 960px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -22,9 +22,9 @@ const Container = styled.div`
     width: 1152px;
   }
 
-  @media screen and (min-width: 1088px) {
-    max-width: 960px;
-    width: 960px;
+  @media screen and (min-width: 1472px) {
+    max-width: 1344px;
+    width: 1344px;
   }
 `;
 
@@ -46,7 +46,7 @@ const PokemonList: React.FC<Props> = ({ pokemonList }) => {
     <Container>
       <Row center="xs">
         {pokemonList.pokemons.map((pokemon) => (
-          <PaddedCol xs={12} sm={12} md={12} lg={4}>
+          <PaddedCol xs={12} sm={4} md={4} lg={4}>
             <PokemonCard pokemon={pokemon} key={pokemon.id} />
           </PaddedCol>
         ))}
