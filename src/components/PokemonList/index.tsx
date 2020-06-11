@@ -9,25 +9,6 @@ interface Props {
   pokemonList?: PokemonListState;
 }
 
-const Container = styled.div`
-  margin: 0 auto;
-
-  @media screen and (min-width: 1088px) {
-    max-width: 960px;
-    width: 960px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 1152px;
-    width: 1152px;
-  }
-
-  @media screen and (min-width: 1472px) {
-    max-width: 1344px;
-    width: 1344px;
-  }
-`;
-
 const PaddedCol = styled(Col)`
   padding: 0.75rem;
 `;
@@ -35,24 +16,18 @@ const PaddedCol = styled(Col)`
 const PokemonList: React.FC<Props> = ({ pokemonList }) => {
   if (!pokemonList) return null;
   if (pokemonList.pokemons.length === 0 && pokemonList.loading)
-    return (
-      <Container>
-        <Spinner />
-      </Container>
-    );
+    return <Spinner />;
   if (pokemonList.error) return null;
 
   return (
-    <Container>
-      <Row center="xs">
-        {pokemonList.pokemons.map((pokemon) => (
-          <PaddedCol xs={12} sm={4} md={4} lg={4}>
-            <PokemonCard pokemon={pokemon} key={pokemon.id} />
-          </PaddedCol>
-        ))}
-        {<Spinner />}
-      </Row>
-    </Container>
+    <Row center="xs">
+      {pokemonList.pokemons.map((pokemon) => (
+        <PaddedCol xs={12} sm={4} md={4} lg={4}>
+          <PokemonCard pokemon={pokemon} key={pokemon.id} />
+        </PaddedCol>
+      ))}
+      {<Spinner />}
+    </Row>
   );
 };
 

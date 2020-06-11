@@ -47,7 +47,7 @@ export interface Stat {
   stat: {
     name: string;
     url: string;
-  }
+  };
 }
 
 export interface Sprites {

@@ -43,6 +43,8 @@ const PokemonCardBlock = styled(Link)`
   padding: 1.25rem;
   flex-direction: column;
   transition: box-shadow 0.3s;
+  height: 100%;
+    box-sizing: border-box;
 
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   :hover {

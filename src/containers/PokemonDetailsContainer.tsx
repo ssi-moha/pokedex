@@ -5,6 +5,7 @@ import { RootState, Pokemon } from "../types";
 import { fetchPokemonObject } from "../actions/pokemon";
 import PokemonCard from "../components/PokemonCard";
 import isEmpty from "../utils/isEmpty";
+import PokemonDetails from "../components/PokemonDetails";
 
 interface DispatchProps {
   fetchPokemonObject: (name: string) => void;
@@ -32,9 +33,7 @@ const PokemonDetailsContainer: React.FC<TotalProps> = ({
 
   console.log(pokemon?.pokemonObject);
   return (
-    <>
-      <PokemonCard pokemon={pokemon.pokemonObject.pokemon as Pokemon} />
-    </>
+    <PokemonDetails pokemon={pokemon.pokemonObject.pokemon as Pokemon} />
   );
 };
 
