@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Pokemon } from "../../types";
 import { Link } from "react-router-dom";
+import PokemonID from "../PokemonID";
+import PokemonTypes from "../PokemonTypes";
 
 interface Props {
   pokemon: Pokemon;
@@ -23,15 +25,6 @@ const InformationsBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-`;
-
-const TypesBlock = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  img {
-    max-height: 28px;
-    max-width: 64px;
-  }
 `;
 
 const PokemonCardBlock = styled(Link)`
@@ -66,31 +59,18 @@ const PokemonCardBlock = styled(Link)`
 const PokemonCard: React.FC<Props> = ({ pokemon }) => {
   return (
     <PokemonCardBlock to={`/pokemon/${pokemon.name}`}>
-      <div>
-        <p style={{ float: "left" }}>#{pokemon.id}</p>
-        <p
-          className="title"
-          style={{ float: "right", textTransform: "capitalize" }}
-        >
-          {pokemon.name}
-        </p>
-      </div>
+      <PokemonID pokemon={pokemon} />
+      
       <PokemonImg>
         <img src={`/images/pokemons/${pokemon.id}.svg`} alt={pokemon.name} />
       </PokemonImg>
-
+      
       <InformationsBlock>
         <p>Height: {(pokemon.height * 0.1).toFixed(1)} m</p>
         <p>Weight: {(pokemon.weight * 0.1).toFixed(1)} kg</p>
       </InformationsBlock>
-      <TypesBlock>
-        {pokemon.types.map((type) => (
-          <img
-            src={`/images/types/${type.type.name}.svg`}
-            alt={type.type.name}
-          />
-        ))}
-      </TypesBlock>
+      
+      <PokemonTypes types={pokemon.types} />
     </PokemonCardBlock>
   );
 };

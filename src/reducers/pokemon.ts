@@ -5,6 +5,9 @@ import {
   POKEMON_OBJECT_REQUEST,
   POKEMON_OBJECT_SUCCESS,
   POKEMON_OBJECT_FAILURE,
+  POKEMON_SPECIES_REQUEST,
+  POKEMON_SPECIES_SUCCESS,
+  POKEMON_SPECIES_FAILURE,
 } from "../actions";
 
 const INITIAL_STATE = {
@@ -15,6 +18,14 @@ const INITIAL_STATE = {
   },
   pokemonObject: {
     pokemon: {},
+    error: null,
+    loading: false,
+  },
+  specieObject: {
+    specie: {
+      flavor_text_entries: [{}],
+      genera: [{}],
+    },
     error: null,
     loading: false,
   },
@@ -75,6 +86,39 @@ export default function (
         ...state,
         pokemonObject: {
           pokemon: null,
+          error: action.payload,
+          loading: false,
+        },
+      };
+    case POKEMON_SPECIES_REQUEST:
+      return {
+        ...state,
+        specieObject: {
+          specie: {
+            flavor_text_entries: [{}],
+            genera: [{}],
+          },
+          error: null,
+          loading: true,
+        },
+      };
+    case POKEMON_SPECIES_SUCCESS:
+      return {
+        ...state,
+        specieObject: {
+          specie: { ...action.payload },
+          error: null,
+          loading: false,
+        },
+      };
+    case POKEMON_SPECIES_FAILURE:
+      return {
+        ...state,
+        specieObject: {
+          specie: {
+            flavor_text_entries: [{}],
+            genera: [{}],
+          },
           error: action.payload,
           loading: false,
         },

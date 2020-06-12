@@ -10,6 +10,11 @@ const Theme = createGlobalStyle`
         line-height: 1.5;
     }
 
+    h1, h2, h3, h4, h5, p {
+        margin: 0;
+        padding: 0;
+    }
+
     .gray {
         color: gray;
     }
@@ -18,9 +23,8 @@ const Theme = createGlobalStyle`
         font-weight: 700
     }
 
-    h1, h2, h3, h4, h5, p {
-        margin: 0;
-        padding: 0;
+    .flex {
+        flex: 1;
     }
 `;
 

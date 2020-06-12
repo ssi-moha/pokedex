@@ -12,6 +12,11 @@ const rootState: RootState = {
       error: null,
       loading: false,
     },
+    specieObject: {
+      specie: {},
+      error: null,
+      loading: false,
+    },
   },
 };
 

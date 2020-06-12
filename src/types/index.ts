@@ -2,6 +2,7 @@ export interface RootState {
   pokemon?: {
     pokemonList: PokemonListState;
     pokemonObject: PokemonObjectState;
+    specieObject: PokemonSpecieState;
   };
 }
 
@@ -13,6 +14,12 @@ export interface PokemonListState {
 
 export interface PokemonObjectState {
   pokemon: Pokemon | {};
+  error: Error | null;
+  loading: boolean;
+}
+
+export interface PokemonSpecieState {
+  specie: Specie | {};
   error: Error | null;
   loading: boolean;
 }
@@ -64,4 +71,23 @@ export interface Sprites {
 export interface Type {
   slot: number;
   type: { name: string; url: string };
+}
+
+export interface Specie {
+  id: number;
+  color: { name: string; url: string };
+  evolution_chain: { name: string; url: string };
+  flavor_text_entries: FlavorTextEntries[];
+  genera: Genera[];
+}
+
+export interface FlavorTextEntries {
+  flavor_text: string;
+  language: { name: string; url: string };
+  version: { name: string; url: string };
+}
+
+export interface Genera {
+  genus: string;
+  language: { name: string; url: string };
 }

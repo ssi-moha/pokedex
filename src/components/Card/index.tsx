@@ -2,15 +2,18 @@ import React from "react";
 import { CardHeader, CardContent, CardContainer } from "./style";
 
 interface Props {
-  title: string;
+  title?: string;
+  containerClassName?: string; 
 }
 
-const Card: React.FC<Props> = ({ title, children }) => {
+const Card: React.FC<Props> = ({ title, children, containerClassName }) => {
   return (
-    <CardContainer>
-      <CardHeader>
-        <p className="title">{title}</p>
-      </CardHeader>
+    <CardContainer className={containerClassName}>
+      {title && (
+        <CardHeader>
+          <p className="title">{title}</p>
+        </CardHeader>
+      )}
       <CardContent>{children}</CardContent>
     </CardContainer>
   );
