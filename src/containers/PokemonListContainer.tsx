@@ -19,7 +19,7 @@ const PokemonListContainer: React.FC<TotalProps> = ({
   fetchPokemonList,
   pokemon,
 }) => {
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState<number>(pokemon ? pokemon.pokemonList.pokemons.length : 0);
   useScrollEventListener(useOffsetToNextPage);
 
   function useOffsetToNextPage() {

@@ -34,7 +34,6 @@ const PokemonDetailsContainer: React.FC<TotalProps> = ({
     return null;
   }
 
-  console.log(pokemon);
   return (
     <PokemonDetails
       pokemon={pokemon.pokemonObject.pokemon as Pokemon}
