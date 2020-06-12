@@ -16,4 +16,7 @@ export const CardContainer = styled.div`
   max-width: 100%;
   position: relative;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  @media screen and (max-width: 1088px) {
+    margin: 0.5rem 0;
+  }
 `;

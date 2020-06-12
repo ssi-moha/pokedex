@@ -19,7 +19,7 @@ const PokemonTypes: React.FC<Props> = ({ types }) => {
   return (
     <TypesBlock>
       {types.map((type) => (
-        <img src={`/images/types/${type.type.name}.svg`} alt={type.type.name} />
+        <img src={`${process.env.PUBLIC_URL}/images/types/${type.type.name}.svg`} alt={type.type.name} />
       ))}
     </TypesBlock>
   );

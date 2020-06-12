@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { RootState, Pokemon, Specie } from "../types";
-import { fetchPokemonObject, fetchPokemonSpecies } from "../actions/pokemon";
+import { fetchPokemonObject } from "../actions/pokemonObject";
 import isEmpty from "../utils/isEmpty";
 import PokemonDetails from "../components/PokemonDetails";
+import { fetchPokemonSpecies } from "../actions/specie";
 
 interface DispatchProps {
   fetchPokemonObject: (name: string) => void;
@@ -27,7 +28,7 @@ const PokemonDetailsContainer: React.FC<TotalProps> = ({
   useEffect(() => {
     fetchPokemonObject(name);
     fetchPokemonSpecies(name);
-  }, [name]);
+  }, [name, fetchPokemonObject, fetchPokemonSpecies]);
 
   if (!pokemon || isEmpty(pokemon.pokemonObject.pokemon)) {
     return null;

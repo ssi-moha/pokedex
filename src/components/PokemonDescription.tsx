@@ -4,6 +4,7 @@ import { Pokemon } from "../types";
 import PokemonID from "./PokemonID";
 import styled from "styled-components";
 import PokemonTypes from "./PokemonTypes";
+import { PokemonImg } from "./PokemonCard";
 
 interface Props {
   description: string;
@@ -22,14 +23,14 @@ const PokemonDescription: React.FC<Props> = ({ description, pokemon }) => {
         <Card containerClassName="flex">
           <SpaceBlocks>
             <PokemonID pokemon={pokemon} />
-            <div style={{ margin: "auto", width: "fit-content" }}>
-              <img src={`/images/pokemons/${pokemon.id}.svg`} alt="test" />
-            </div>
+            <PokemonImg>
+              <img src={`${process.env.PUBLIC_URL}/images/pokemons/${pokemon.id}.svg`} alt="test" />
+            </PokemonImg>
           </SpaceBlocks>
 
           <p>{description}</p>
         </Card>
-      <Card>
+      <Card containerClassName="card-margin-top">
         <PokemonTypes types={pokemon.types} />
       </Card>
     </div>

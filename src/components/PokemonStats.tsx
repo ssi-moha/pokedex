@@ -9,12 +9,12 @@ interface Props {
 
 const PokemonStats: React.FC<Props> = ({ pokemon }) => {
   return (
-    <Card title="Stats">
-      {pokemon.stats.map((stat) => (
-        <>
+    <Card containerClassName="card-margin-top" title="Stats">
+      {pokemon.stats.map((stat, index) => (
+        <div key={`stat-${index}`}>
           <p className="gray">{stat.stat.name.toUpperCase()}</p>
           <Range value={stat.base_stat} />
-        </>
+        </div>
       ))}
     </Card>
   );

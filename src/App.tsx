@@ -26,17 +26,19 @@ const Container = styled.div`
 
 const App: React.FC = () => {
   return (
-    <HashRouter basename='/'>
-    <Container>
-      <Switch>
-        <Route exact path="/">
-          <PokemonListPage />
-        </Route>
-        <Route exact path="/pokemon/:name">
-          <PokemonPage />
-        </Route>
-      </Switch>
-    </Container>
+    <HashRouter basename="/">
+      <Container>
+        <section>
+          <Switch>
+            <Route exact path="/">
+              <PokemonListPage />
+            </Route>
+            <Route exact path="/pokemon/:name">
+              <PokemonPage />
+            </Route>
+          </Switch>
+        </section>
+      </Container>
     </HashRouter>
   );
 };

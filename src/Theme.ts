@@ -15,6 +15,14 @@ const Theme = createGlobalStyle`
         padding: 0;
     }
 
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    .card-margin-top {
+        margin-top: 0.5rem;
+    }
+
     .gray {
         color: gray;
     }

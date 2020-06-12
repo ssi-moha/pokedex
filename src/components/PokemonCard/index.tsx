@@ -9,7 +9,7 @@ interface Props {
   pokemon: Pokemon;
 }
 
-const PokemonImg = styled.div`
+export const PokemonImg = styled.div`
   display: flex;
   justify-content: center;
   height: 300px;
@@ -62,7 +62,7 @@ const PokemonCard: React.FC<Props> = ({ pokemon }) => {
       <PokemonID pokemon={pokemon} />
       
       <PokemonImg>
-        <img src={`/images/pokemons/${pokemon.id}.svg`} alt={pokemon.name} />
+        <img src={`${process.env.PUBLIC_URL}/images/pokemons/${pokemon.id}.svg`} alt={pokemon.name} />
       </PokemonImg>
       
       <InformationsBlock>

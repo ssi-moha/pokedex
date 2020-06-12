@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchPokemonList } from "../actions/pokemon";
+import { fetchPokemonList } from "../actions/pokemonList";
 import { connect } from "react-redux";
 import { RootState } from "../types";
 import PokemonList from "../components/PokemonList";
