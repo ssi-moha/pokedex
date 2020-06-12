@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import PokemonListPage from "./pages/PokemonListPage";
-import { Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import PokemonPage from "./pages/PokemonPage";
 import styled from "styled-components";
 
@@ -26,6 +26,7 @@ const Container = styled.div`
 
 const App: React.FC = () => {
   return (
+    <HashRouter basename='/'>
     <Container>
       <Switch>
         <Route exact path="/">
@@ -36,6 +37,7 @@ const App: React.FC = () => {
         </Route>
       </Switch>
     </Container>
+    </HashRouter>
   );
 };
 
