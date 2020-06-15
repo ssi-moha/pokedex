@@ -1,22 +1,20 @@
 import { RootState } from "../types";
 
 const rootState: RootState = {
-  pokemon: {
-    pokemonList: {
-      pokemons: [],
-      error: null,
-      loading: false,
-    },
-    pokemonObject: {
-      pokemon: {},
-      error: null,
-      loading: false,
-    },
-    specieObject: {
-      specie: {},
-      error: null,
-      loading: false,
-    },
+  pokemonList: {
+    pokemons: [],
+    error: null,
+    loading: false,
+  },
+  pokemonObject: {
+    pokemon: {},
+    error: null,
+    loading: false,
+  },
+  specieObject: {
+    specie: {},
+    error: null,
+    loading: false,
   },
 };
 

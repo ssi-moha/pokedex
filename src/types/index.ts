@@ -1,9 +1,8 @@
 export interface RootState {
-  pokemon?: {
-    pokemonList: PokemonListState;
-    pokemonObject: PokemonObjectState;
-    specieObject: PokemonSpecieState;
-  };
+  pokemonList?: PokemonListState;
+  pokemonObject?: PokemonObjectState;
+  specieObject?: PokemonSpecieState;
+
 }
 
 export interface PokemonListState {
@@ -29,7 +28,7 @@ export interface Pokemon {
   base_experience: number;
   forms: { name: string; url: string }[];
   height: number;
-  id: 21;
+  id: number;
   is_default: boolean;
   location_area_encounters: string;
   moves: { name: string; url: string }[];

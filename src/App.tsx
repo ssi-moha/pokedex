@@ -4,9 +4,10 @@ import PokemonListPage from "./pages/PokemonListPage";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import PokemonPage from "./pages/PokemonPage";
 import styled from "styled-components";
+import Navbar from "./components/Navbar";
 
 const Container = styled.div`
-  margin: 0 auto;
+  margin: 3.25rem auto;
 
   @media screen and (min-width: 1088px) {
     max-width: 960px;
@@ -27,6 +28,7 @@ const Container = styled.div`
 const App: React.FC = () => {
   return (
     <HashRouter basename="/">
+      <Navbar />
       <Container>
         <section>
           <Switch>

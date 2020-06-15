@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import pokemon from "./pokemon";
+import pokemonObject from "./pokemonObject";
+import pokemonList from "./pokemonList";
+import specieObject from "./specieObject";
 
 const rootReducer = combineReducers({
-  pokemon,
+  pokemonList,
+  pokemonObject,
+  specieObject,
 });
 
 export default rootReducer;

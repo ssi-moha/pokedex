@@ -10,16 +10,16 @@ interface DispatchProps {
 }
 
 interface StateProps {
-  pokemon: RootState["pokemon"];
+  pokemonList: RootState["pokemonList"];
 }
 
 type TotalProps = DispatchProps & StateProps;
 
 const PokemonListContainer: React.FC<TotalProps> = ({
   fetchPokemonList,
-  pokemon,
+  pokemonList,
 }) => {
-  const [offset, setOffset] = useState<number>(pokemon ? pokemon.pokemonList.pokemons.length : 0);
+  const [offset, setOffset] = useState<number>(pokemonList ? pokemonList.pokemons.length : 0);
   useScrollEventListener(useOffsetToNextPage);
 
   function useOffsetToNextPage() {
@@ -31,10 +31,10 @@ const PokemonListContainer: React.FC<TotalProps> = ({
     //handle last
   }, [fetchPokemonList, offset]);
 
-  return <PokemonList pokemonList={pokemon?.pokemonList} />;
+  return <PokemonList pokemonList={pokemonList} />;
 };
 
-const mapStateToProps = (state: RootState) => ({ pokemon: state.pokemon });
+const mapStateToProps = (state: RootState) => ({ pokemonList: state.pokemonList });
 
 export default connect<StateProps, DispatchProps>(mapStateToProps, {
   fetchPokemonList,
