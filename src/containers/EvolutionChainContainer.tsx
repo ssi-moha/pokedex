@@ -7,6 +7,7 @@ import getIdFromUrl from "../utils/getIdFromUrl";
 
 interface OwnProps {
   evolutionChainUrl: string | null;
+  loading: boolean;
 }
 
 interface DispatchProps {
@@ -23,6 +24,7 @@ const EvolutionChainContainer: React.FC<TotalProps> = ({
   fetchEvolutionChain,
   evolutionChainUrl,
   evolutionChainObject,
+  loading
 }) => {
   function formatEvolutionData(): any[] {
     const newArray: any[] = [];
@@ -57,7 +59,12 @@ const EvolutionChainContainer: React.FC<TotalProps> = ({
 
   if (!evolutionChainUrl) return null;
 
-  return <EvolutionChainContent evolutionData={formatEvolutionData()} />;
+  return (
+    <EvolutionChainContent
+      loading={loading || evolutionChainObject.loading}
+      evolutionData={formatEvolutionData()}
+    />
+  );
 };
 
 const mapStateToProps = (state: any) => ({

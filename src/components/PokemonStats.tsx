@@ -9,7 +9,7 @@ interface Props {
 
 const PokemonStats: React.FC<Props> = ({ pokemon }) => {
   return (
-    <Card containerClassName="card-margin-top" title="Stats">
+    <Card containerClassName="card-margin-top flex" title="Stats">
       {pokemon.stats.map((stat, index) => (
         <div key={`stat-${index}`}>
           <p className="gray">{stat.stat.name.toUpperCase()}</p>

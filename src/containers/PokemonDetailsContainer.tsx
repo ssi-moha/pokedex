@@ -6,12 +6,10 @@ import { fetchPokemonObject } from "../actions/pokemonObject";
 import isEmpty from "../utils/isEmpty";
 import PokemonDetails from "../components/PokemonDetails";
 import { fetchPokemonSpecies } from "../actions/specie";
-import { fetchEvolutionChain } from "../actions/evolutionChain";
 
 interface DispatchProps {
   fetchPokemonObject: (name: string) => void;
   fetchPokemonSpecies: (name: string) => void;
-  fetchEvolutionChain: (id: number) => void;
 }
 
 interface StateProps {
@@ -24,7 +22,6 @@ type TotalProps = DispatchProps & StateProps;
 const PokemonDetailsContainer: React.FC<TotalProps> = ({
   fetchPokemonObject,
   fetchPokemonSpecies,
-  fetchEvolutionChain,
   pokemonObject,
   specieObject,
 }) => {
@@ -48,6 +45,7 @@ const PokemonDetailsContainer: React.FC<TotalProps> = ({
     <PokemonDetails
       pokemon={pokemonObject.pokemon as Pokemon}
       specie={specieObject.specie as Specie}
+      loading={specieObject.loading || pokemonObject.loading}
     />
   );
 };
@@ -60,5 +58,4 @@ const mapStateToProps = (state: RootState) => ({
 export default connect<StateProps, DispatchProps>(mapStateToProps, {
   fetchPokemonObject,
   fetchPokemonSpecies,
-  fetchEvolutionChain,
 })(PokemonDetailsContainer);

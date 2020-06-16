@@ -12,6 +12,7 @@ export const Range = styled.progress.attrs({
   overflow: hidden;
   background: #fff;
   width: 100%;
+  margin: 0.3rem 0!important;
 
 
   &::-webkit-progress-bar {

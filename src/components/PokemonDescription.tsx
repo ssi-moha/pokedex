@@ -30,7 +30,7 @@ const PokemonDescription: React.FC<Props> = ({ description, pokemon }) => {
 
           <p>{description}</p>
         </Card>
-      <Card containerClassName="card-margin-top">
+      <Card title="Types" containerClassName="card-margin-top">
         <PokemonTypes types={pokemon.types} />
       </Card>
     </div>

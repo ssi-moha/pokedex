@@ -16,7 +16,11 @@ const PaddedCol = styled(Col)`
 const PokemonList: React.FC<Props> = ({ pokemonList }) => {
   if (!pokemonList) return null;
   if (pokemonList.pokemons.length === 0 && pokemonList.loading)
-    return <Spinner />;
+    return (
+      <Row center="xs">
+        <Spinner />
+      </Row>
+    );
   if (pokemonList.error) return null;
 
   return (
