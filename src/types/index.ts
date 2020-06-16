@@ -2,9 +2,14 @@ export interface RootState {
   pokemonList?: PokemonListState;
   pokemonObject?: PokemonObjectState;
   specieObject?: PokemonSpecieState;
-
+  evolutionChainObject?: EvolutionChainState;
 }
 
+export interface EvolutionChainState {
+  evolutionChain: EvolutionChain | null;
+  error: Error | null;
+  loading: boolean;
+}
 export interface PokemonListState {
   pokemons: Pokemon[];
   error: Error | null;
@@ -23,18 +28,54 @@ export interface PokemonSpecieState {
   loading: boolean;
 }
 
+export interface NamedAPIResource {
+  name: string;
+  url: string;
+}
+export interface EvolutionDetails {
+  gender: number;
+  item: NamedAPIResource;
+  known_move: NamedAPIResource;
+  known_move_type: NamedAPIResource;
+  location: NamedAPIResource;
+  min_level: number;
+  min_happiness: number;
+  min_beauty: number;
+  min_affection: number;
+  needs_overworld_rain: boolean;
+  party_species: NamedAPIResource;
+  party_type: NamedAPIResource;
+  relative_physical_stats: number;
+  time_of_day: string;
+  trade_species: NamedAPIResource;
+  turn_upside_down: boolean;
+}
+
+export interface EvolutionChain {
+  id: number;
+  baby_trigger_item: NamedAPIResource;
+  chain: ChainLink;
+}
+
+export interface ChainLink {
+  is_baby: boolean;
+  species: NamedAPIResource;
+  evolution_details: EvolutionDetails[];
+  evolves_to: ChainLink[];
+}
+
 export interface Pokemon {
   abilities: Ability[];
   base_experience: number;
-  forms: { name: string; url: string }[];
+  forms: NamedAPIResource[];
   height: number;
   id: number;
   is_default: boolean;
   location_area_encounters: string;
-  moves: { name: string; url: string }[];
+  moves: NamedAPIResource[];
   name: string;
   order: number;
-  species: { name: string; url: string };
+  species: NamedAPIResource;
   sprites: Sprites;
   weight: number;
   types: Type[];
@@ -42,7 +83,7 @@ export interface Pokemon {
 }
 
 export interface Ability {
-  ability: { name: string; url: string };
+  ability: NamedAPIResource;
   is_hidden: boolean;
   slot: number;
 }
@@ -69,24 +110,24 @@ export interface Sprites {
 
 export interface Type {
   slot: number;
-  type: { name: string; url: string };
+  type: NamedAPIResource;
 }
 
 export interface Specie {
   id: number;
-  color: { name: string; url: string };
-  evolution_chain: { name: string; url: string };
+  color: NamedAPIResource;
+  evolution_chain: NamedAPIResource;
   flavor_text_entries: FlavorTextEntries[];
   genera: Genera[];
 }
 
 export interface FlavorTextEntries {
   flavor_text: string;
-  language: { name: string; url: string };
-  version: { name: string; url: string };
+  language: NamedAPIResource;
+  version: NamedAPIResource;
 }
 
 export interface Genera {
   genus: string;
-  language: { name: string; url: string };
+  language: NamedAPIResource;
 }

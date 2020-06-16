@@ -21,6 +21,7 @@ const PokemonTypes: React.FC<Props> = ({ types }) => {
         <img
           src={`${process.env.PUBLIC_URL}/images/types/${type.type.name}.svg`}
           alt={type.type.name}
+          key={`key-${type.type.name}`}
         />
       ))}
     </TypesBlock>

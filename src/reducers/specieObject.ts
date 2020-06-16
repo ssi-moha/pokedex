@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   specie: {
     flavor_text_entries: [{}],
     genera: [{}],
+    evolution_chain: { name: null, url: null },
   },
   error: null,
   loading: false,
@@ -24,6 +25,7 @@ export default function (
         specie: {
           flavor_text_entries: [{}],
           genera: [{}],
+          evolution_chain: { name: null, url: null },
         },
         error: null,
         loading: true,

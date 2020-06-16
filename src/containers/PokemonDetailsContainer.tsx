@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { RootState, Pokemon, Specie, PokemonObjectState } from "../types";
+import { RootState, Pokemon, Specie } from "../types";
 import { fetchPokemonObject } from "../actions/pokemonObject";
 import isEmpty from "../utils/isEmpty";
 import PokemonDetails from "../components/PokemonDetails";

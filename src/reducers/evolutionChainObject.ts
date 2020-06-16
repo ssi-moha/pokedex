@@ -1,11 +1,11 @@
 import {
-  POKEMON_LIST_REQUEST,
-  POKEMON_LIST_SUCCESS,
-  POKEMON_LIST_FAILURE,
+  EVOLUTION_CHAIN_REQUEST,
+  EVOLUTION_CHAIN_SUCCESS,
+  EVOLUTION_CHAIN_FAILURE,
 } from "../actions";
 
 const INITIAL_STATE = {
-  pokemons: [],
+  evolutionChain: [],
   error: null,
   loading: false,
 };
@@ -15,24 +15,24 @@ export default function (
   action: { type: string; payload: any }
 ) {
   switch (action.type) {
-    case POKEMON_LIST_REQUEST:
+    case EVOLUTION_CHAIN_REQUEST:
       return {
         ...state,
-        pokemons: [...state.pokemons],
+        evolutionChain: { ...state.evolutionChain },
         error: null,
         loading: true,
       };
-    case POKEMON_LIST_SUCCESS:
+    case EVOLUTION_CHAIN_SUCCESS:
       return {
         ...state,
-        pokemons: [...state.pokemons, action.payload],
+        evolutionChain: { ...action.payload },
         error: null,
         loading: false,
       };
-    case POKEMON_LIST_FAILURE:
+    case EVOLUTION_CHAIN_FAILURE:
       return {
         ...state,
-        pokemons: [],
+        evolutionChain: null,
         error: action.payload,
         loading: false,
       };

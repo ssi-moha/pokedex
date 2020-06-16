@@ -16,6 +16,11 @@ const rootState: RootState = {
     error: null,
     loading: false,
   },
+  evolutionChainObject: {
+    evolutionChain: null,
+    error: null,
+    loading: false,
+  }
 };
 
 export default rootState;

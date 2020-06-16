@@ -29,10 +29,9 @@ export function evolutionChainFailure(error: any) {
 export function fetchEvolutionChain(id: number) {
   return async function (dispatch: Dispatch) {
     dispatch(evolutionChainRequest());
-
     try {
       const response = await PokeAPI.getEvolutionChainById(id);
-      console.log(response);
+      dispatch(evolutionChainSuccess(response));
     } catch (error) {
       dispatch(evolutionChainFailure(error));
     }
