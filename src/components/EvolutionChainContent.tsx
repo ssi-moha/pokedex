@@ -22,6 +22,9 @@ const EvolutionImg = styled.div`
 const EvolutionChainBlock = styled.div`
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const EvolutionChainContent: React.FC<Props> = ({ evolutionData }) => {
@@ -36,7 +39,11 @@ const EvolutionChainContent: React.FC<Props> = ({ evolutionData }) => {
             alt=""
           />
           <p
-            style={{ textTransform: "capitalize", fontWeight: 700, padding: "0.5rem" }}
+            style={{
+              textTransform: "capitalize",
+              fontWeight: 700,
+              padding: "0.5rem",
+            }}
           >{`#${evolution.id} ${evolution.name}`}</p>
         </EvolutionImg>
       ))}
