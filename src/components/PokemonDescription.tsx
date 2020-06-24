@@ -4,7 +4,7 @@ import { Pokemon } from "../types";
 import PokemonID from "./PokemonID";
 import styled from "styled-components";
 import PokemonTypes from "./PokemonTypes";
-import { PokemonImg } from "./PokemonCard";
+import { PokemonImg } from "./PokemonCard/style";
 
 interface Props {
   description: string;

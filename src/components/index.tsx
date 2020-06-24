@@ -1,17 +1,12 @@
 import React from "react";
-import { PokemonListState } from "../../types";
-import PokemonCard from "../PokemonCard";
-import { Row, Col } from "react-flexbox-grid";
-import styled from "styled-components";
-import Spinner from "../Spinner";
+import { PokemonListState } from "../types";
+import PokemonCard from "./PokemonCard";
+import { Row } from "react-flexbox-grid";
+import Spinner from "./Spinner";
 
 interface Props {
   pokemonList?: PokemonListState;
 }
-
-const PaddedCol = styled(Col)`
-  padding: 0.75rem;
-`;
 
 const PokemonList: React.FC<Props> = ({ pokemonList }) => {
   if (!pokemonList) return null;
@@ -25,12 +20,16 @@ const PokemonList: React.FC<Props> = ({ pokemonList }) => {
 
   return (
     <Row center="xs">
-      {pokemonList.pokemons.map((pokemon) => (
-        <PaddedCol xs={12} sm={4} md={4} lg={4}>
+      {pokemonList.pokemons
+        .sort((a, b) => a.id - b.id)
+        .map((pokemon) => (
           <PokemonCard pokemon={pokemon} key={pokemon.id} />
-        </PaddedCol>
-      ))}
-      {<Spinner />}
+        ))}
+      {pokemonList.loading && (
+        <Row>
+          <Spinner />
+        </Row>
+      )}
     </Row>
   );
 };

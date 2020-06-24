@@ -18,6 +18,11 @@ const Theme = createGlobalStyle`
         padding: 0;
     }
 
+    input {
+        outline: unset;
+        border: 0;
+    }
+
     a {
         color: unset;
         text-decoration: unset;
