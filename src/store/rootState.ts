@@ -20,7 +20,12 @@ const rootState: RootState = {
     evolutionChain: null,
     error: null,
     loading: false,
-  }
+  },
+  pokemonSearchState: {
+    value: "",
+    error: null,
+    loading: false
+  },
 };
 
 export default rootState;

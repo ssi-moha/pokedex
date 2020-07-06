@@ -3,14 +3,14 @@ import pokemonObject from "./pokemonObject";
 import pokemonList from "./pokemonList";
 import specieObject from "./specieObject";
 import evolutionChainObject from "./evolutionChainObject";
-import search from "./search";
+import pokemonSearch from "./pokemonSearch";
 
 const rootReducer = combineReducers({
   pokemonList,
   pokemonObject,
   specieObject,
   evolutionChainObject,
-  search
+  pokemonSearch
 });
 
 export default rootReducer;

@@ -3,7 +3,15 @@ export interface RootState {
   pokemonObject?: PokemonObjectState;
   specieObject?: PokemonSpecieState;
   evolutionChainObject?: EvolutionChainState;
+  pokemonSearchState?: PokemonSearchState;
 }
+
+export interface PokemonSearchState {
+  value: string;
+  loading: boolean;
+  error: Error | null;
+  result?: any;
+} 
 
 export interface EvolutionChainState {
   evolutionChain: EvolutionChain | null;

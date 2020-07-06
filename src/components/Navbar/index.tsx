@@ -26,6 +26,13 @@ const NavbarItem = styled.div`
 `;
 
 
+const SearchButton = styled.button`
+  border-radius: 15px;
+  border: 0;
+  height: 24px;
+  margin: 0 4px;
+`;
+
 const Navbar: React.FC<Props> = () => {
   return (
     <NavbarContainer>
@@ -34,6 +41,7 @@ const Navbar: React.FC<Props> = () => {
       </NavbarItem>
       <NavbarItem>
         <PokemonSearchBar />
+        <SearchButton>GO!</SearchButton>
       </NavbarItem>
     </NavbarContainer>
   );
