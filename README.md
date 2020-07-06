@@ -7,6 +7,8 @@ Built Upon
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [styled-components](https://styled-components.com/)
+* [gh-pages](https://github.com/tschaub/gh-pages)
+
 
 This app displays Pokémons with their ID's and others informations like stats, evolutions and description.
 
