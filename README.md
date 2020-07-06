@@ -10,6 +10,7 @@ Built Upon
 
 This app displays Pokémons with their ID's and others informations like stats, evolutions and description.
 
+![Pokemon List](/public/pokemon-list.png)
 ![Pokemon Details](/public/pokemon-details.png)
 
 Thanks to [PokéApi](https://github.com/PokeAPI/pokeapi) !
